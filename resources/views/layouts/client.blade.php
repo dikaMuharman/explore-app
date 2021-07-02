@@ -14,25 +14,37 @@
               <a href="{{route('discover')}}" class="nav__link {{ request()->is('discover') || request()->is('detail') ? 'active-link' : ''}} ">Discover</a>
               
             </li>
+            @guest
+            <li class="nav__item">
+              <a href="{{route('login')}}" class="nav__link ">Login</a>
+            </li>
+            @endguest
+            @auth    
             <li class="nav__dropdown">
               <a
                 href="#"
                 class="nav__link nav__dropdown-link"
                 id="nav-btn-dropdown"
               >
-                <span class="nav__dropdown-name nav__link">John doe</span>
+                <span class="nav__dropdown-name nav__link">{{auth()->user()->username}}</span>
                 <i class="ri-user-line nav__dropdown-icon"></i>
               </a>
             </li>
+            @endauth
           </ul>
+          @auth
           <div class="nav__dropdown-content" id="nav-dropdown-content">
             <a href="#" class="button button--flex nav__dropdown-button"
               >Profile</a
             >
-            <a href="#" class="button button--flex nav__dropdown-button"
-              >Sign out</a
-            >
+            <form action="{{route('logout')}}" method="post">
+              @csrf
+              <button type="submit" class="button button--flex nav__dropdown-button"
+                >Log out</button
+              >
+            </form>
           </div>
+          @endauth
           <i class="ri-close-line nav__close" id="nav-close"></i>
         </div>
         <div class="nav__toggle" id="nav-toggle">

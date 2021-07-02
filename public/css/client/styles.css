@@ -973,6 +973,7 @@ input[type="number"] {
 .video__button-icon {
     font-size: 1.2rem;
 }
+
 /*=============== Breadcrumbs ===============*/
 .breadcrumbs__menu {
     display: flex;
@@ -1332,6 +1333,18 @@ input[type="number"] {
 
 .register {
     padding-top: 1rem;
+}
+
+.login__alert {
+    padding: var(--mb-1);
+    width: 100%;
+    background-color: var(--danger-color);
+}
+
+.login__alert span {
+    color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+    text-align: center;
 }
 
 .login__container {

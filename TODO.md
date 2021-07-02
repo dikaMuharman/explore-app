@@ -1,7 +1,7 @@
 checklist
 
--   [ ] buat db user
--   [ ] buat autentikasi user
+-   [x] buat db user
+-   [x] buat autentikasi user
 -   [ ] implementasi role model
 -   [ ] implemtasi register dan login functional
 -   [ ] buat db wisata
