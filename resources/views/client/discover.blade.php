@@ -9,7 +9,7 @@
 
 @section('content')
     <!--==================== PLACES ====================-->
-      <section class="place result section" id="place">
+      <section class="place section" id="place">
         <h2 class="section__title">Choose Your Place</h2>
         <div class="place__container container grid">
           <!--==================== PLACES CARD 1 ====================-->
