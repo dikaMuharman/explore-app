@@ -74,25 +74,277 @@
     }
 }
 
-/*========== Variables Dark theme ==========*/
-body.dark-theme {
-    --first-color-second: hsl(var(--hue-color), 54%, 12%);
-    --title-color: hsl(var(--hue-color), 24%, 95%);
-    --text-color: hsl(var(--hue-color), 8%, 75%);
-    --input-color: hsl(var(--hue-color), 29%, 16%);
-    --body-color: hsl(var(--hue-color), 29%, 12%);
-    --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-    --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+/*========== Glitch animation ==========*/
+@-webkit-keyframes noise-anim {
+    0% {
+        clip: rect(49px, 9999px, 40px, 0);
+    }
+    5% {
+        clip: rect(75px, 9999px, 72px, 0);
+    }
+    10% {
+        clip: rect(97px, 9999px, 93px, 0);
+    }
+    15% {
+        clip: rect(15px, 9999px, 9px, 0);
+    }
+    20% {
+        clip: rect(14px, 9999px, 92px, 0);
+    }
+    25% {
+        clip: rect(18px, 9999px, 94px, 0);
+    }
+    30% {
+        clip: rect(17px, 9999px, 20px, 0);
+    }
+    35% {
+        clip: rect(71px, 9999px, 59px, 0);
+    }
+    40% {
+        clip: rect(42px, 9999px, 84px, 0);
+    }
+    45% {
+        clip: rect(56px, 9999px, 25px, 0);
+    }
+    50% {
+        clip: rect(46px, 9999px, 14px, 0);
+    }
+    55% {
+        clip: rect(47px, 9999px, 1px, 0);
+    }
+    60% {
+        clip: rect(64px, 9999px, 58px, 0);
+    }
+    65% {
+        clip: rect(89px, 9999px, 92px, 0);
+    }
+    70% {
+        clip: rect(56px, 9999px, 39px, 0);
+    }
+    75% {
+        clip: rect(80px, 9999px, 71px, 0);
+    }
+    80% {
+        clip: rect(8px, 9999px, 13px, 0);
+    }
+    85% {
+        clip: rect(66px, 9999px, 68px, 0);
+    }
+    90% {
+        clip: rect(68px, 9999px, 4px, 0);
+    }
+    95% {
+        clip: rect(56px, 9999px, 14px, 0);
+    }
+    100% {
+        clip: rect(28px, 9999px, 53px, 0);
+    }
 }
 
-/*========== Dropdown ==========*/
+@keyframes noise-anim {
+    0% {
+        clip: rect(49px, 9999px, 40px, 0);
+    }
+    5% {
+        clip: rect(75px, 9999px, 72px, 0);
+    }
+    10% {
+        clip: rect(97px, 9999px, 93px, 0);
+    }
+    15% {
+        clip: rect(15px, 9999px, 9px, 0);
+    }
+    20% {
+        clip: rect(14px, 9999px, 92px, 0);
+    }
+    25% {
+        clip: rect(18px, 9999px, 94px, 0);
+    }
+    30% {
+        clip: rect(17px, 9999px, 20px, 0);
+    }
+    35% {
+        clip: rect(71px, 9999px, 59px, 0);
+    }
+    40% {
+        clip: rect(42px, 9999px, 84px, 0);
+    }
+    45% {
+        clip: rect(56px, 9999px, 25px, 0);
+    }
+    50% {
+        clip: rect(46px, 9999px, 14px, 0);
+    }
+    55% {
+        clip: rect(47px, 9999px, 1px, 0);
+    }
+    60% {
+        clip: rect(64px, 9999px, 58px, 0);
+    }
+    65% {
+        clip: rect(89px, 9999px, 92px, 0);
+    }
+    70% {
+        clip: rect(56px, 9999px, 39px, 0);
+    }
+    75% {
+        clip: rect(80px, 9999px, 71px, 0);
+    }
+    80% {
+        clip: rect(8px, 9999px, 13px, 0);
+    }
+    85% {
+        clip: rect(66px, 9999px, 68px, 0);
+    }
+    90% {
+        clip: rect(68px, 9999px, 4px, 0);
+    }
+    95% {
+        clip: rect(56px, 9999px, 14px, 0);
+    }
+    100% {
+        clip: rect(28px, 9999px, 53px, 0);
+    }
+}
+@-webkit-keyframes noise-anim-2 {
+    0% {
+        clip: rect(16px, 9999px, 10px, 0);
+    }
+    5% {
+        clip: rect(22px, 9999px, 29px, 0);
+    }
+    10% {
+        clip: rect(6px, 9999px, 68px, 0);
+    }
+    15% {
+        clip: rect(85px, 9999px, 95px, 0);
+    }
+    20% {
+        clip: rect(65px, 9999px, 91px, 0);
+    }
+    25% {
+        clip: rect(93px, 9999px, 68px, 0);
+    }
+    30% {
+        clip: rect(10px, 9999px, 27px, 0);
+    }
+    35% {
+        clip: rect(37px, 9999px, 25px, 0);
+    }
+    40% {
+        clip: rect(12px, 9999px, 23px, 0);
+    }
+    45% {
+        clip: rect(40px, 9999px, 18px, 0);
+    }
+    50% {
+        clip: rect(19px, 9999px, 71px, 0);
+    }
+    55% {
+        clip: rect(2px, 9999px, 35px, 0);
+    }
+    60% {
+        clip: rect(16px, 9999px, 69px, 0);
+    }
+    65% {
+        clip: rect(8px, 9999px, 65px, 0);
+    }
+    70% {
+        clip: rect(30px, 9999px, 57px, 0);
+    }
+    75% {
+        clip: rect(14px, 9999px, 4px, 0);
+    }
+    80% {
+        clip: rect(39px, 9999px, 30px, 0);
+    }
+    85% {
+        clip: rect(22px, 9999px, 35px, 0);
+    }
+    90% {
+        clip: rect(58px, 9999px, 71px, 0);
+    }
+    95% {
+        clip: rect(34px, 9999px, 90px, 0);
+    }
+    100% {
+        clip: rect(67px, 9999px, 68px, 0);
+    }
+}
+
+@keyframes noise-anim-2 {
+    0% {
+        clip: rect(16px, 9999px, 10px, 0);
+    }
+    5% {
+        clip: rect(22px, 9999px, 29px, 0);
+    }
+    10% {
+        clip: rect(6px, 9999px, 68px, 0);
+    }
+    15% {
+        clip: rect(85px, 9999px, 95px, 0);
+    }
+    20% {
+        clip: rect(65px, 9999px, 91px, 0);
+    }
+    25% {
+        clip: rect(93px, 9999px, 68px, 0);
+    }
+    30% {
+        clip: rect(10px, 9999px, 27px, 0);
+    }
+    35% {
+        clip: rect(37px, 9999px, 25px, 0);
+    }
+    40% {
+        clip: rect(12px, 9999px, 23px, 0);
+    }
+    45% {
+        clip: rect(40px, 9999px, 18px, 0);
+    }
+    50% {
+        clip: rect(19px, 9999px, 71px, 0);
+    }
+    55% {
+        clip: rect(2px, 9999px, 35px, 0);
+    }
+    60% {
+        clip: rect(16px, 9999px, 69px, 0);
+    }
+    65% {
+        clip: rect(8px, 9999px, 65px, 0);
+    }
+    70% {
+        clip: rect(30px, 9999px, 57px, 0);
+    }
+    75% {
+        clip: rect(14px, 9999px, 4px, 0);
+    }
+    80% {
+        clip: rect(39px, 9999px, 30px, 0);
+    }
+    85% {
+        clip: rect(22px, 9999px, 35px, 0);
+    }
+    90% {
+        clip: rect(58px, 9999px, 71px, 0);
+    }
+    95% {
+        clip: rect(34px, 9999px, 90px, 0);
+    }
+    100% {
+        clip: rect(67px, 9999px, 68px, 0);
+    }
+}
+/*========== Button Dark/Light ==========*/
 .nav__dropdown {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
     position: absolute;
     right: 3rem;
-    bottom: 9rem;
+    bottom: 3rem;
 }
 
 .nav__dropdown-link {
@@ -100,8 +352,7 @@ body.dark-theme {
     align-items: center;
 }
 
-.nav__dropdown-name,
-.nav__dropdown-icon {
+.nav__dropdown-name {
     color: var(--text-color);
 }
 
@@ -124,7 +375,7 @@ body.dark-theme {
 
 .nav__dropdown-content {
     position: absolute;
-    bottom: 2rem;
+    bottom: 5rem;
     right: 3rem;
 }
 
@@ -636,6 +887,68 @@ input[type="number"] {
     top: 2rem;
     right: 0;
 }
+/*=============== Error ===============*/
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.error__container {
+    max-width: 450px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error__title {
+    font-size: 7rem;
+    position: relative;
+    line-height: 1;
+    width: 12.5rem;
+}
+
+.error__title::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -1px 0 #e74a3b;
+    top: 0;
+    color: hsl(var(--hue-color), 84%, 22%);
+    background: #f8f9fc;
+    background: var(--body-color);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+.error::before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 1px 0 #4e73df;
+    top: 0;
+    color: hsl(var(--hue-color), 84%, 22%);
+    background: var(--body-color);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
+
+.error__link,
+.error__icon {
+    color: var(--first-color);
+}
+
+.error__link {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-semi-bold);
+    column-gap: 0.5rem;
+}
 
 /*=============== VIDEO ===============*/
 .video__container {
@@ -817,6 +1130,26 @@ input[type="number"] {
 .description__title {
     text-align: start;
 }
+/*=============== Description ===============*/
+.success {
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.success__title {
+    margin: 1rem 0;
+}
+
+.success__buttongroup {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--mb-0-5);
+    margin-top: 1rem;
+}
 
 /*=============== Reviews ===============*/
 .reviews__card {
@@ -992,6 +1325,58 @@ input[type="number"] {
     margin: var(--mb-0-25) 0;
 }
 
+/*=============== Login ===============*/
+.login {
+    padding-top: 2rem;
+}
+
+.register {
+    padding-top: 1rem;
+}
+
+.login__container {
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    max-width: 525px;
+    margin: auto;
+    padding: 1.5rem;
+    gap: 0rem;
+}
+
+.login__buttongroup {
+    margin-top: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login__control {
+    position: relative;
+}
+
+.login__control--toggle {
+    position: absolute;
+    height: 100%;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.login__control--toggle i {
+    font-size: var(--h3-font-size);
+    color: var(--first-color);
+}
+
+.login__helper {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.login__helper--link {
+    font-weight: var(--font-semi-bold);
+    color: var(--first-color);
+    text-decoration: underline;
+}
+
 /*=============== PLACES ===============*/
 .place {
     padding-top: 2rem;
@@ -1112,6 +1497,52 @@ input[type="number"] {
 
 .subscribe__input::placeholder {
     color: var(--text-color);
+}
+/*=============== Search location ===============*/
+.search {
+    padding: 0rem;
+}
+
+.search__bg {
+    background-color: var(--first-color-second);
+    color: var(--white-color);
+    padding: 3rem 0rem;
+}
+
+.search__title,
+.search__description {
+    color: var(--white-color);
+    text-align: start;
+}
+
+.search__title {
+    margin-bottom: 0.5rem;
+}
+
+.search__description {
+    margin-bottom: var(--mb-1-5);
+}
+
+.search__form {
+    padding: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.search__input {
+    padding: 1rem;
+    background-color: var(--input-color);
+    color: var(--text-color);
+}
+
+.search__input::placeholder {
+    color: var(--text-color);
+}
+
+.search__button {
+    background-color: var(--first-color-alt);
 }
 
 /*=============== FOOTER ===============*/
@@ -1263,11 +1694,6 @@ input[type="number"] {
         width: 470px;
         margin: 0 auto;
     }
-
-    /* .tourism__card,
-  .tourism__img {
-    height: 250px;
-  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -1409,6 +1835,22 @@ input[type="number"] {
         padding-top: 2rem;
     }
 
+    .success {
+        padding-top: 3rem;
+    }
+
+    .place {
+        padding-top: 6rem;
+    }
+
+    .place .section__title {
+        margin-bottom: 0;
+    }
+
+    .success__buttongroup .button {
+        justify-content: center;
+    }
+
     .experience__overlay:nth-child(1) {
         width: 363px;
         margin-right: 4rem;
@@ -1416,10 +1858,6 @@ input[type="number"] {
 
     .experience__overlay:nth-child(2) {
         width: 160px;
-    }
-
-    .search {
-        padding-top: 5rem;
     }
 
     .description,
@@ -1442,27 +1880,12 @@ input[type="number"] {
         background-color: var(--first-color-second);
     }
 
-    .subscribe__container,
-    .search__container {
+    .subscribe__container {
         padding: 3.5rem 0;
     }
 
     .subscribe__input {
         padding: 0.5rem;
-    }
-
-    .search__title,
-    .search__description {
-        text-align: center;
-    }
-
-    .search__form {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .search__input {
-        width: 70%;
     }
 
     .breadcrumbs__menu {
@@ -1471,6 +1894,16 @@ input[type="number"] {
 
     .details {
         padding-top: var(--mb-1-25);
+    }
+
+    .login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login__container {
+        width: 100%;
     }
 
     .details__data {
@@ -1550,6 +1983,10 @@ input[type="number"] {
     .discover__data {
         left: 1.5rem;
         bottom: 2rem;
+    }
+
+    .result {
+        padding-top: 7rem;
     }
 
     .discover__title {
