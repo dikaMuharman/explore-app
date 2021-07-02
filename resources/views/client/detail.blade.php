@@ -1,5 +1,10 @@
 @extends('layouts.client') 
 
+@section('css')
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="{{asset('css/client/swiper-bundle.min.css')}}" />
+@endsection
+
 @section('navbar')
   <header class="header header--white">
     @parent
