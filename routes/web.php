@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.home');
-});
+Route::get('/', function() {
+    return view('client.home');
+})->name('home');
+
+Route::get('/discover', function () {
+    return view('client.discover');
+})->name('discover');
+
+Route::get('/detail', function () {
+    return view('client.detail');
+})->name('detail');
+
+Route::get('/reservation', function () {
+    return view('client.reservation');
+})->name('reservation');
