@@ -1,0 +1,22 @@
+checklist
+
+-   [ ] buat db user
+-   [ ] buat autentikasi user
+-   [ ] implementasi role model
+-   [ ] implemtasi register dan login functional
+-   [ ] buat db wisata
+-   [ ] implementasi crud wisata
+-   [ ] menampilkan data dari wisata ke halaman client
+-   [ ] implementasi route model binding untuk pertukaran data antar halaman
+-   [ ] buat db atraksi turis
+-   [ ] buat relasi antara wisata dengan db atraksi turis
+-   [ ] implementasi crud atraksi turis
+-   [ ] menampilkan data dari wisata
+-   [ ] buat db reviews
+-   [ ] buat relasi antara wisata dengan db reviews
+-   [ ] implementasi crud reviews
+-   [ ] menampilkan data dari wisata
+-   [ ] buat db pemesanan
+-   [ ] buat relasi antara pemesanan dengan wisata
+-   [ ] implematasi crud pemesanan
+-   [ ] tampilkan isi daftar pemesanan tiap pengguna
