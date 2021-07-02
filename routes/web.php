@@ -28,3 +28,11 @@ Route::get('/detail', function () {
 Route::get('/reservation', function () {
     return view('client.reservation');
 })->name('reservation');
+
+Route::get('/login', function() {
+    return view('client.login');
+})->name('login');
+
+Route::get('/register', function() {
+    return view('client.register');
+})->name('register');
