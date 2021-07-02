@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+@extends('layouts.baseclient')
 
-    <link rel="shortcut icon" href="{{asset('img/client/client/favicon.png')}}" type="image/png" />
-
-    <!--=============== REMIXICONS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="{{asset('css/client/swiper-bundle.min.css')}}" />
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="{{asset('css/client/styles.css')}}" />
-
-    <title>Explore</title>
-  </head>
-  <body>
-
+@section('body')  
     @section('navbar')
       <nav class="nav container">
         <a href="{{route('home')}}" class="nav__logo">Explore </a>
@@ -167,16 +146,4 @@
       </div>
     </footer>
 
-    <!--========== SCROLL UP ==========-->
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="ri-arrow-up-line scrollup__icon"></i>
-    </a>
-
-    @yield('top-js')
-
-    <!--=============== MAIN JS ===============-->
-    <script src="{{asset('js/client/main.js')}}"></script>
-
-    @yield('bottom-js')
-  </body>
-</html>
+@endsection
