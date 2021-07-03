@@ -2,8 +2,9 @@ checklist
 
 -   [x] buat db user
 -   [x] buat autentikasi user
--   [ ] implementasi role model
--   [ ] implemtasi register dan login functional
+-   [x] implementasi role model
+-   [x] implemtasi register dan login functional
+-   [ ] crud user
 -   [ ] buat db wisata
 -   [ ] implementasi crud wisata
 -   [ ] menampilkan data dari wisata ke halaman client
