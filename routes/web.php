@@ -18,6 +18,10 @@ Route::get('/', function() {
     return view('client.home');
 })->name('home');
 
+Route::get('/admin',function() {
+    return view('admin.home');
+})->name('dashboard')->middleware(['role','auth']);
+
 Route::get('/discover', function () {
     return view('client.discover');
 })->name('discover');
@@ -30,11 +34,11 @@ Route::get('/reservation', function () {
     return view('client.reservation');
 })->name('reservation');
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/store-login', [UserController::class, 'storeLogin'])->name('store-login');
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware(['guest']);
+Route::post('/store-login', [UserController::class, 'storeLogin'])->name('store-login')->middleware(['guest']);
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::get('/register', [UserController::class, 'register'])->name('register')->middleware(['guest']);
 
-Route::post('/storer-register', [UserController::class, 'storeRegister'])->name('store-register');
+Route::post('/store-register', [UserController::class, 'storeRegister'])->name('store-register')->middleware(['guest']);
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');

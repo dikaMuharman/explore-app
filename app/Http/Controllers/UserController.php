@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     public function register() {
+        // dd(Auth::user());
         return view('client.register');
     }
 
@@ -18,7 +19,7 @@ class UserController extends Controller
        
         $this->validate($request, [
             'username' => 'required|max:12|min:6',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:App\Models\User,email',
             'password' => 'required|min:6|confirmed'
         ]);
 

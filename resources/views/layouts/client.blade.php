@@ -34,6 +34,11 @@
           </ul>
           @auth
           <div class="nav__dropdown-content" id="nav-dropdown-content">
+            @if (auth()->user()->role == 'admin')
+            <a href="{{route('dashboard')}}" class="button button--flex nav__dropdown-button"
+              >Admin</a
+            >
+            @endif
             <a href="#" class="button button--flex nav__dropdown-button"
               >Profile</a
             >
