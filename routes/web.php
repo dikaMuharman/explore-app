@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\PaketWisataController;
+use App\Http\Controllers\Admin\PemesananController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,5 +51,12 @@ Route::middleware(['role','auth'])->prefix('admin')->group(function() {
         return view('admin.home');
     })->name('dashboard');
 
-    Route::resource('user',AdminUserController::class);
+    Route::resources([
+        'user' => AdminUserController::class,
+        'wisata' => WisataController::class,
+        'paket-wisata' => PaketWisataController::class,
+        'review' => ReviewController::class,
+        'pemesanan' => PemesananController::class
+    ]);
+    
 });
