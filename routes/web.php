@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AtraksiTurisController;
 use App\Http\Controllers\Admin\PaketWisataController;
 use App\Http\Controllers\Admin\PemesananController;
 use App\Http\Controllers\Admin\ReviewController;
@@ -56,7 +57,8 @@ Route::middleware(['role','auth'])->prefix('admin')->group(function() {
         'wisata' => WisataController::class,
         'paket-wisata' => PaketWisataController::class,
         'review' => ReviewController::class,
-        'pemesanan' => PemesananController::class
+        'pemesanan' => PemesananController::class,
+        'atraksi' => AtraksiTurisController::class
     ]);
     
 });
