@@ -35,6 +35,15 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="text" name="rating" class="form-control @error('rating') is-invalid @enderror" value="{{old('rating')}}">
+                @error('rating')
+                    <span class="invalid-feedback">
+                        {{$message}}
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="foto">Foto</label>
                 
                 <div id="container" >
