@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
       <div class="card-body">
-          <form action="{{route('wisata.store')}}" method="POST">
+          <form action="{{route('wisata.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama</label>

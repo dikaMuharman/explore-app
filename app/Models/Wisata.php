@@ -13,7 +13,12 @@ class Wisata extends Model
         'nama',
         'lokasi',
         'deskripsi',
-        'foto'
+        'foto',
+        'rating'
+    ];
+
+     protected $attributes = [
+        'rating' => 0,
     ];
 
     protected $casts = [
