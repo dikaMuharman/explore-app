@@ -31,7 +31,7 @@
           <tr>
             <th scope="row">1</th>
             <td>Ngeteh</td>
-            <td>Asw</td>
+            <td>Alhamdulillah</td>
             <td>
               <button class="btn btn-primary"><i class="far fa-eye"></i></button>
               <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
