@@ -79,10 +79,10 @@
                 <div id="container" >
                     <div class="row" id="form-1">
                         <div class="col-md-5">
-                            <input type="text" name="fasilitas[1][nama]" class="form-control">
+                            <input type="text" name="fasilitas[][nama]" class="form-control">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="fasilitas[1][nama]" class="form-control">
+                            <input type="text" name="fasilitas[][icon]" class="form-control">
                         </div>
                         <div class="col-md-1">
                             <button class="btn btn-danger" id="hapus">Hapus</button>

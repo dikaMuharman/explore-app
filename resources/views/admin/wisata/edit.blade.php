@@ -5,9 +5,8 @@
 @section('content')
     <div class="card">
       <div class="card-body">
-          <form action="{{route('user.store')}}" method="POST">
+          <form action="{{route('wisata.store')}}" method="POST">
             @csrf
-            @method('put')
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}">
@@ -37,12 +36,19 @@
             </div>
             <div class="form-group">
                 <label for="foto">Foto</label>
-                <input type="text" name="foto" class="form-control @error('foto') is-invalid @enderror" value="{{old('foto')}}">
-                @error('foto')
-                    <span class="invalid-feedback">
-                        {{$message}}
-                    </span>
-                @enderror
+                
+                <div id="container" >
+                    <div class="input-group" >
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="foto[]" id="photo" >
+                            <label class="custom-file-label" for="foto" >Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-danger" type="button" >Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-2" id="tambahGambar">Tambah Gambar</button>
             </div>
             <div class="d-flex justify-content-end ">
                 <a href="{{route('user.index')}}" class="btn btn-secondary mr-3">Back</a>
@@ -51,4 +57,8 @@
         </form>
       </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{asset('js/photo.js')}}"></script>
 @endsection
