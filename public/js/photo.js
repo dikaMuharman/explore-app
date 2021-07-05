@@ -5,7 +5,7 @@ const form = (id) => {
                             <label class="custom-file-label" for="foto-${id}">Choose file</label>
                         </div>
                         <div class="input-group-append">
-                            <button class="btn btn-danger" onclick="deleteForm(${id})" type="button" id="inputGroupFileAddon04">Button</button>
+                            <button class="btn btn-danger" onclick="deleteForm(${id})" type="button" id="inputGroupFileAddon04">Delete</button>
                         </div>
                     </div>`;
     $("#container").append(html);
