@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -57,49 +57,82 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('admin/pemesanan','admin/pemesanan/create') ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Pemesanan"
                     aria-expanded="true" aria-controls="Wisata">
                     <i class="fas fa-bookmark"></i>
                     <span>Pemesanan</span>
                 </a>
-                <div id="Pemesanan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="Pemesanan" class="collapse {{ request()->is('admin/pemesanan','admin/pemesanan/create') ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Daftar pemesanan</h6>
-                        <a class="collapse-item" href="buttons.html">List pesanan</a>
-                        <a class="collapse-item" href="cards.html">Tambah pesanan</a>
+                        <a class="collapse-item {{ request()->is('admin/pemesanan') ? 'active' : '' }}" href="{{ route('pemesanan.index') }}">List pesanan</a>
+                        <a class="collapse-item {{ request()->is('admin/pemesanan/create') ? 'active' : '' }}" href="{{ route('pemesanan.create') }}">Tambah pesanan</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('admin/wisata','admin/wisata/create') ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Wisata"
                     aria-expanded="true" aria-controls="Wisata">
                     <i class="fas fa-location-arrow"></i>
                     <span>Wisata</span>
                 </a>
-                <div id="Wisata" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="Wisata" class="collapse {{ request()->is('admin/wisata','admin/wisata/create') ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu wisata</h6>
-                        <a class="collapse-item" href="buttons.html">Daftar wisata</a>
-                        <a class="collapse-item" href="cards.html">Tambah wisata</a>
+                        <a class="collapse-item {{ request()->is('admin/wisata') ? 'active' : '' }}" href="{{ route('wisata.index') }}">Daftar wisata</a>
+                        <a class="collapse-item {{ request()->is('admin/wisata/create') ? 'active' : '' }}" href="{{ route('wisata.create') }}">Tambah wisata</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ request()->is('admin/paket-wisata','admin/paket-wisata/create') ? 'active' : ''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Paket"
+                    aria-expanded="true" aria-controls="Wisata">
+                    <i class="fas fa-suitcase"></i>
+                    <span>Paket wisata</span>
+                </a>
+                <div id="Paket" class="collapse  {{ request()->is('admin/paket-wisata','admin/paket-wisata/create') ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Menu paket wisata</h6>
+                        <a class="collapse-item {{ request()->is('admin/paket-wisata') ? 'active' : '' }}" href="{{ route('paket-wisata.index') }}">Daftar paket wisata</a>
+                        <a class="collapse-item {{ request()->is('admin/paket-wisata/create') ? 'active' : '' }}" href="{{ route('paket-wisata.create') }}">Tambah paket wisata</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('admin/atraksi','admin/atraksi/create') ? 'active' : ''}}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Atraksi"
+                    aria-expanded="true" aria-controls="Wisata">
+                    <i class="fas fa-map-signs"></i>
+                    <span>Atraksi wisata</span>
+                </a>
+                <div id="Atraksi" class="collapse {{ request()->is('admin/atraksi','admin/atraksi/create') ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Menu Atraksi wisata</h6>
+                        <a class="collapse-item {{ request()->is('admin/atraksi') ? 'active' : '' }}" href="{{ route('atraksi.index') }}">Daftar atraksi wisata</a>
+                        <a class="collapse-item {{ request()->is('admin/atraksi/create') ? 'active' : '' }}" href="{{ route('atraksi.create') }}">Tambah atraksi wisata</a>
+                    </div>
+                </div> 
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ request()->is('admin/review') || request()->is('admin/review/create') ? 'active' : ''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Review"
                     aria-expanded="true" aria-controls="Review">
                     <i class="fas fa-star"></i>
                     <span>Review</span>
                 </a>
-                <div id="Review" class="collapse" aria-labelledby="headingTree" data-parent="#accordionSidebar">
+                <div id="Review" class="collapse {{ request()->is('admin/review') || request()->is('admin/review/create') ? 'show' : ''}}" aria-labelledby="headingTree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Review pengguna</h6>
-                        <a class="collapse-item" href="buttons.html">Daftar review</a>
-                        <a class="collapse-item" href="cards.html">Tambah review</a>
+                        <a class="collapse-item {{ request()->is('admin/review') ? 'active' : ''}}" href="{{route('review.index')}}">Daftar review</a>
+                        <a class="collapse-item {{ request()->is('admin/review/create') ? 'active' : ''}}" href="{{route('review.create')}}">Tambah review</a>
                     </div>
                 </div>
             </li>
