@@ -31,10 +31,10 @@ isi dari tabel wisata
 
 form wisata
 
-1. nama (text)
-2. lokasi (text)
-3. deskripsi (text)
-4. foto (text)
+1. nama (required)
+2. lokasi (required)
+3. deskripsi (required)
+4. foto (required|image|mimes:jpg,bmp,png)
 
 tabel paket wisata
 
@@ -45,14 +45,14 @@ tabel paket wisata
 
 form paket wisata
 
-1. nama paket
-2. lokasi wisata
-3. hotel
-4. rating
-5. pesawat
-6. kelas pesawat
-7. fasilitas
-8. harga paket
+1. nama paket (required)
+2. lokasi wisata (reqiuired)
+3. hotel (required)
+4. rating (required|numeric)
+5. pesawat (required)
+6. kelas pesawat (required)
+7. fasilitas (required)
+8. harga paket (required|numeric)
 
 tabel atraksi turis
 
@@ -63,9 +63,9 @@ tabel atraksi turis
 
 form atraksi turis
 
-1. nama
-2. nama wisata
-3. foto
+1. nama (required)
+2. nama wisata (required)
+3. foto (required|image|mimes:jpg,bmp,png)
 
 tabel pemesanan
 
@@ -78,11 +78,11 @@ tabel pemesanan
 
 form pemesanan
 
-1. nama pemesan
-2. wisata
-3. paket
-4. tanggal berangkat
-5. tanggal pulang
-6. harga paket
-7. jumlah paket
-8. total harga
+1. nama pemesan (required)
+2. wisata (required)
+3. paket (required)
+4. tanggal berangkat (required)
+5. tanggal pulang (required)
+6. harga paket (required|numeric)
+7. jumlah paket (required|numeric)
+8. total harga (required|numeric)
