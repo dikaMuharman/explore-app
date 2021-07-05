@@ -1,10 +1,10 @@
 const form = (id) => {
     const html = `<div class="row mt-2" id="form-${id}">
       <div class="col-md-5">
-          <input type="text" name="fasilitas[${id}][nama]" class="form-control">
+          <input type="text" name="fasilitas[][nama]" class="form-control">
       </div>
       <div class="col-md-6">
-          <input type="text" name="fasilitas[${id}][nama]" class="form-control">
+          <input type="text" name="fasilitas[][icon]" class="form-control">
       </div>
       <div class="col-md-1">
           <button class="btn btn-danger" onclick="delForm(${id})">Hapus</button>
