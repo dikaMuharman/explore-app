@@ -18,6 +18,7 @@ class CreateWisatasTable extends Migration
             $table->string('nama');
             $table->string('lokasi');
             $table->string('deskripsi');
+            $table->float('rating');
             $table->json('foto');
             $table->timestamps();
         });

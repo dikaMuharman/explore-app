@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaketWisatasTable extends Migration
+class CreatePemesanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreatePaketWisatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('paket_wisatas', function (Blueprint $table) {
+        Schema::create('pemesanans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('wisata_id');
-            $table->string('nama_wisata');
-            $table->string('nama_hotel');
-            $table->string('nama_pesawat');
-            $table->string('kelas_pesawat');
-            $table->float('rating');
-            $table->json('fasilitas');
+            $table->string('nama_pemesan');
+            $table->string('wisata');
+            $table->string('paket');
+            $table->date('tanggal_berangkat');
+            $table->date('tanggal_pulang');
             $table->integer('harga_paket');
+            $table->integer('jumlah_paket');
+            $table->integer('total_harga');
             $table->foreign('wisata_id')->references('id')->on('wisatas')->onDelete('cascade');
             $table->timestamps();
         });
@@ -35,6 +36,6 @@ class CreatePaketWisatasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paket_wisatas');
+        Schema::dropIfExists('pemesanans');
     }
 }
