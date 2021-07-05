@@ -17,13 +17,13 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="nama_wisata">Nama Wisata</label>
-                <select class="custom-select @error('nama_wisata') is-invalid @enderror" name="nama_wisata">
+                <label for="wisata_id">Nama Wisata</label>
+                <select class="custom-select @error('wisata_id') is-invalid @enderror" name="wisata_id">
                     <option value="" selected>Select role</option>
-                    <option value="user" @if (old('nama_wisata') == 'user') selected @endif>User</option>
-                    <option value="admin" @if (old('nama_wisata') == 'admin') selected @endif>Admin</option>
+                    <option value="user" @if (old('wisata_id') == 'user') selected @endif>User</option>
+                    <option value="admin" @if (old('wisata_id') == 'admin') selected @endif>Admin</option>
                 </select>
-                @error('nama_wisata')
+                @error('wisata_id')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>
