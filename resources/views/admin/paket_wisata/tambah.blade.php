@@ -5,26 +5,26 @@
 @section('content')
     <div class="card">
       <div class="card-body">
-          <form action="{{route('user.store')}}" method="POST">
+          <form action="{{route('paket-wisata.store')}}" method="POST" >
             @csrf
-            @method('put')
             <div class="form-group">
-                <label for="nama">Nama Paket</label>
-                <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}">
-                @error('nama')
+                <label for="nama_wisata">nama Paket</label>
+                <input type="text" name="nama_wisata" class="form-control @error('nama_wisata') is-invalid @enderror" value="{{old('nama_wisata')}}">
+                @error('nama_wisata')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="nama_wisata">Lokasi Wisata</label>
-                <select class="custom-select @error('nama_wisata') is-invalid @enderror" name="nama_wisata">
-                    <option value="" selected>Select role</option>
-                    <option value="user" @if (old('nama_wisata') == 'user') selected @endif>User</option>
-                    <option value="admin" @if (old('nama_wisata') == 'admin') selected @endif>Admin</option>
+                <label for="wisata_id">Wisata</label>
+                <select class="custom-select @error('wisata_id') is-invalid @enderror" name="wisata_id">
+                    <option value="" selected>Pilih wisata</option>
+                    @foreach ($wisatas as $wisata)
+                    <option value="{{$wisata->id}}" @if (old('wisata_id') == $wisata->id) selected @endif>{{$wisata->nama}}</option>
+                    @endforeach
                 </select>
-                @error('nama_wisata')
+                @error('wisata_id')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>
@@ -79,10 +79,10 @@
                 <div id="container" >
                     <div class="row" id="form-1">
                         <div class="col-md-5">
-                            <input type="text" name="fasilitas[][nama]" class="form-control">
+                            <input type="text" name="fasilitas[0][nama]" class="form-control">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="fasilitas[][icon]" class="form-control">
+                            <input type="text" name="fasilitas[0][icon]" class="form-control">
                         </div>
                         <div class="col-md-1">
                             <button class="btn btn-danger" id="hapus">Hapus</button>
@@ -101,7 +101,7 @@
                 @enderror
             </div>
             <div class="d-flex justify-content-end ">
-                <a href="{{route('user.index')}}" class="btn btn-secondary mr-3">Back</a>
+                <a href="{{route('paket-wisata.index')}}" class="btn btn-secondary mr-3">Back</a>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </form>
