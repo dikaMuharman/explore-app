@@ -22,9 +22,14 @@ class Pemesanan extends Model
         'total_harga'
     ];
 
+    protected $cast = [
+        'tanggal_berangkat' => 'date',
+        'tanggal_pulang' => 'date'
+    ];
+
     public function wisata()
     {
-        return $this->belongsToMany(Wisata::class);
+        return $this->belongsTo(Wisata::class);
     }
 
 }

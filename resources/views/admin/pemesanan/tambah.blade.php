@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
-@section('title','Tambah paket wisata')
+@section('title','Tambah Pesanan')
 
 @section('content')
     <div class="card">
       <div class="card-body">
-          <form action="{{route('user.store')}}" method="POST">
+          <form action="{{route('pemesanan.update',$pemesanan)}}" method="POST">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="nama_pemesan">Nama Pemesan</label>
                 <input type="text" name="nama_pemesan" class="form-control @error('nama_pemesan') is-invalid @enderror" value="{{old('nama_pemesan')}}">
@@ -18,8 +19,13 @@
             </div>
             <div class="form-group">
                 <label for="wisata">Wisata</label>
-                <input type="text" name="wisata" class="form-control @error('wisata') is-invalid @enderror" value="{{old('wisata')}}">
-                @error('wisata')
+                <select class="custom-select @error('wisata_id') is-invalid @enderror" name="wisata_id">
+                    <option value="" selected>Pilih wisata</option>
+                    @foreach ($wisatas as $wisata)
+                    <option value="{{$wisata->id}}" @if (old('wisata') == $wisata->nama) selected @endif>{{$wisata->nama}}</option>
+                    @endforeach
+                </select>
+                @error('wisata_id')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>
@@ -36,8 +42,8 @@
             </div>
             <div class="form-group">
                 <label for="tanggal_reservasi">Tanggal reservasi</label>
-                <input type="text" name="tanggal_reservasi" class="form-control @error('tanggal_pulang') is-invalid @enderror" value="{{old('tanggal_pulang')}}">
-                @error('tanggal_pulang')
+                <input type="text" name="tanggal_reservasi" class="form-control @error('tanggal_reservasi') is-invalid @enderror" value="{{old('tanggal_reservasi')}}">
+                @error('tanggal_reservasi')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>

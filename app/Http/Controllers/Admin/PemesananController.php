@@ -16,8 +16,9 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        // $pemesanan = Pemesanan::all();
-        return view('admin.pemesanan.index');
+        $pemesanan = Pemesanan::all();
+        
+        return view('admin.pemesanan.index',['pemesanans' => $pemesanan]);
     }
 
     /**
@@ -42,21 +43,20 @@ class PemesananController extends Controller
         $warn_required = 'bidang harus diisi';
         $warn_numeric = 'bidang harus diisi dengan angka';
 
+
         $this->validate($request, [
             'nama_pemesan' => 'required',
-            'wisata' => 'required',
+            'wisata_id' => 'required',
             'paket' => 'required',
-            'tanggal_berangkat' => 'required',
-            'tanggal_pulang' => 'required',
+            'tanggal_reservasi' => 'required',
             'harga_paket' => 'required|numeric',
             'jumlah_paket' => 'required|numeric',
             'total_harga' => 'required|numeric'
         ], [
             'nama_pemesan.required' => $warn_required,
-            'wisata.required' => $warn_required,
+            'wisata_id.required' => $warn_required,
             'paket.required' => $warn_required,
-            'tanggal_berangkat.required' => $warn_required,
-            'tanggal_pulang.required' => $warn_required,
+            'tanggal_reservasi.required' => $warn_required,
             'harga_paket.required' => $warn_required,
             'harga_paket.numeric' => $warn_numeric,
             'jumlah_paket.required' => $warn_required,
@@ -65,12 +65,16 @@ class PemesananController extends Controller
             'total_harga.numeric' => $warn_numeric
         ]);
 
-        Pemesanan::create([
-            'nama_pemesan' => $request->nama_pemesanan,
-            'wisata' => $request->wisata,
+        $date = explode(' - ',$request->tanggal_reservasi);
+        // dd($request->all());
+        $wisata = Wisata::find($request->wisata_id);
+
+        $wisata->pemesanan()->create([
+            'nama_pemesan' => $request->nama_pemesan,
+            'wisata' => $wisata->nama,
             'paket' => $request->paket,
-            'tanggal_berangkat' => $request->tanggal_berangkat,
-            'tanggal_pulang' => $request->tanggal_pulang,
+            'tanggal_berangkat' => $date[0],
+            'tanggal_pulang' => $date[1],
             'harga_paket' => $request->harga_paket,
             'jumlah_paket' => $request->jumlah_paket,
             'total_harga' => $request->total_harga
@@ -98,7 +102,9 @@ class PemesananController extends Controller
      */
     public function edit(Pemesanan $pemesanan)
     {
-        return view('admin.pemesanan.edit', ['pemesanan'=>$pemesanan]);
+        $wisatas = Wisata::all();
+        
+        return view('admin.pemesanan.edit', ['pemesanan'=>$pemesanan, 'wisatas' => $wisatas]);
     }
 
     /**
@@ -115,19 +121,17 @@ class PemesananController extends Controller
 
         $this->validate($request, [
             'nama_pemesan' => 'required',
-            'wisata' => 'required',
+            'wisata_id' => 'required',
             'paket' => 'required',
-            'tanggal_berangkat' => 'required',
-            'tanggal_pulang' => 'required',
+            'tanggal_reservasi' => 'required',
             'harga_paket' => 'required|numeric',
             'jumlah_paket' => 'required|numeric',
             'total_harga' => 'required|numeric'
         ], [
             'nama_pemesan.required' => $warn_required,
-            'wisata.required' => $warn_required,
+            'wisata_id.required' => $warn_required,
             'paket.required' => $warn_required,
-            'tanggal_berangkat.required' => $warn_required,
-            'tanggal_pulang.required' => $warn_required,
+            'tanggal_reservasi.required' => $warn_required,
             'harga_paket.required' => $warn_required,
             'harga_paket.numeric' => $warn_numeric,
             'jumlah_paket.required' => $warn_required,
@@ -136,15 +140,18 @@ class PemesananController extends Controller
             'total_harga.numeric' => $warn_numeric
         ]);
         
-        $pemesanan->nama_pemesanan = $request->nama_pemesanan;
-        $pemesanan->wisata = $request->wisata;
+        // dd($request->all());
+
+        $date = explode(' - ',$request->tanggal_reservasi);
+        $wisata = Wisata::find($request->wisata_id);
+        $pemesanan->nama_pemesan = $request->nama_pemesan;
         $pemesanan->paket = $request->paket;
-        $pemesanan->tanggal_berangkat = $request->tanggal_berangkat;
-        $pemesanan->tanggal_pulang = $request->tanggal_pulang;
-        $pemesanan->harga_Paket = $request->harga_Paket;
+        $pemesanan->tanggal_berangkat = $date[0];
+        $pemesanan->tanggal_pulang = $date[1];
+        $pemesanan->harga_paket = $request->harga_paket;
         $pemesanan->jumlah_paket = $request->jumlah_paket;
         $pemesanan->total_harga = $request->total_harga;
-        $pemesanan->save();
+        $wisata->pemesanan()->save($pemesanan);
 
         return redirect()->route('pemesanan.index')->with('status','Data berhasil di update');
     }
@@ -157,6 +164,7 @@ class PemesananController extends Controller
      */
     public function destroy(Pemesanan $pemesanan)
     {
-        //
+        $pemesanan->delete();
+        return redirect()->route('pemesanan.index')->with('status','Data berhasil di hapus');
     }
 }

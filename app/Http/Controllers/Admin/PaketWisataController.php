@@ -145,7 +145,7 @@ class PaketWisataController extends Controller
         $paket_wisatum->nama_pesawat = $request->nama_pesawat;
         $paket_wisatum->kelas_pesawat = $request->kelas_pesawat;
         $paket_wisatum->fasilitas = $request->fasilitas;
-        $paket_wisatum->harga_Paket = (int)$request->harga_Paket;
+        $paket_wisatum->harga_paket = $request->harga_paket;
         $wisata->paketWisata()->save($paket_wisatum);
 
         return redirect()->route('paket-wisata.index')->with('status', 'Data berhasil diupdate');
