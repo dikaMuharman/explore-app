@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Daftar wisata')
+@section('title','Daftar atraksi')
 
 @section('content')
 <div class="card shadow mb-4">
@@ -28,16 +28,22 @@
           </tr>
         </thead>
         <tbody>
+          @foreach ($atraksis as $atraksi)
           <tr>
-            <th scope="row">1</th>
-            <td>Ngeteh</td>
-            <td>Alhamdulillah</td>
+            <th scope="row">{{$loop->iteration}}</th>
+            <td>{{$atraksi->nama}}</td>
+            <td>{{$atraksi->wisata->nama}}</td>
             <td>
-              <button class="btn btn-primary"><i class="far fa-eye"></i></button>
-              <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-              <a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+              <button class="btn btn-primary" data-url="{{route('atraksi.show',$atraksi)}}" data-href="{{route('atraksi.edit',$atraksi)}}" id="atraksiBtn" data-target="#detailAtraksi" data-toggle="modal"><i class="far fa-eye"></i></button>
+              <a href="{{route('atraksi.edit',$atraksi)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+              <form action="{{route('atraksi.destroy',$atraksi)}}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" onclick="return confirm('yakin mau di hapus ?')"><i class="far fa-trash-alt"></i></button>
+              </form>
             </td>
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -45,7 +51,7 @@
 </div>
 
 {{-- Modal detail --}}
-<div class="modal fade" id="detailUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="detailAtraksi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -56,16 +62,16 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" class="form-control" readonly>
+            <label for="nama">Nama Atraksi</label>
+            <input type="text" name="nama" class="form-control">
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" name="email" class="form-control" readonly >
+            <label for="wisata_id">Nama Wisata</label>
+            <input type="text" name="wisata_id" class="form-control">
         </div>
-        <div class="form-group">
-            <label for="role">Role</label>
-            <input type="text" name="role" class="form-control" readonly >
+        <div class="d-flex">
+          <label>Foto</label>
+          <img class="img-thumbnail" style="width: 200px;object-fit: cover">
         </div>
       </div>
       <div class="modal-footer">
@@ -79,7 +85,7 @@
 
 @section('js')
     <script>
-      $('#detailUser').on('show.bs.modal', function (event) {
+      $('#detailAtraksi').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var url = button.data('url')
         $.ajax({
@@ -89,9 +95,9 @@
         }).done(function(data) {
           var dataJson = $.parseJSON(data)
           console.log(dataJson)
-          $('input[name="username"]').val(dataJson.username)
-          $('input[name="email"]').val(dataJson.email)
-          $('input[name="role"]').val(dataJson.role)
+          $('input[name="nama"]').val(dataJson.atraksi.nama)
+          $('input[name="wisata_id"]').val(dataJson.wisata)
+          $('img.img-thumbnail').attr( 'src',`{{asset('atraksi/${dataJson.atraksi.foto}')}}`)
           $('a.link').on('click',function() {
             window.location.href = button.data('href')
           })

@@ -16,6 +16,6 @@ class AtraksiTuris extends Model
     use HasFactory;
     public function wisata()
     {
-        return $this->belongsToMany(Wisata::class);
+        return $this->belongsTo(Wisata::class);
     }
 }
