@@ -55,7 +55,7 @@
                         <div class="input-group" id="input-{{$loop->iteration}}">
                             <div class="custom-file">
                                 
-                                <input type="file" class="custom-file-input" name="foto[]" id="photo" >
+                                <input type="file" class="custom-file-input" name="foto[]" id="photo" accept="image/png, image/gif, image/jpeg" >
                                 <label class="custom-file-label" for="foto" >Choose file</label>
                             </div>
                             <div class="input-group-append">

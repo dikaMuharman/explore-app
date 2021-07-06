@@ -71,7 +71,7 @@
                 @enderror
             </div>
             <div class="d-flex justify-content-end ">
-                <a href="{{route('user.index')}}" class="btn btn-secondary mr-3">Back</a>
+                <a href="{{route('pemesanan.index')}}" class="btn btn-secondary mr-3">Back</a>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </form>

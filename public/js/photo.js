@@ -1,7 +1,7 @@
 const form = (id) => {
     const html = `<div class="input-group mt-2" id="input-${id}" >
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="foto[]" id="foto-${id}" aria-describedby="foto-${id}">
+                            <input type="file" class="custom-file-input" name="foto[]" id="foto-${id}" aria-describedby="foto-${id}" accept="image/png, image/gif, image/jpeg">
                             <label class="custom-file-label" for="foto-${id}">Choose file</label>
                         </div>
                         <div class="input-group-append">
