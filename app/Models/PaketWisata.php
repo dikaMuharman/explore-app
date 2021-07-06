@@ -13,6 +13,7 @@ class PaketWisata extends Model
 
     protected $fillable = [
         'nama_wisata',
+        'wisata_id',
         'nama_hotel',
         'nama_pesawat',
         'rating',
@@ -21,8 +22,21 @@ class PaketWisata extends Model
         'harga_paket'
     ];
 
+    protected $attributes = [
+        'wisata_id' => 0,
+    ];
+
+    protected $casts = [
+        'fasilitas' => 'array',
+    ];
+
     public function wisata()
     {
-        return $this->belongsToMany(Wisata::class);
+        return $this->belongsTo(Wisata::class);
+    }
+
+    public function setPropertiesAttributes($value)
+    {
+        $this->attributes['fasilitas'] = json_encode($value);
     }
 }
