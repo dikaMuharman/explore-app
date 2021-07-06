@@ -24,7 +24,7 @@
                     <option value="{{$wisata->id}}" @if (old('wisata') == $wisata->nama) selected @endif>{{$wisata->nama}}</option>
                     @endforeach
                 </select>
-                @error('paket')
+                @error('wisata')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>

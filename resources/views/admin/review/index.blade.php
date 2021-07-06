@@ -23,20 +23,28 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Username</th>
+            <th scope="col">Wisata</th>
             <th scope="col">Rating</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($reviews as $review)    
           <tr>
-            <th scope="row">1</th>
-            <td>Ngeteh</td>
-            <td>4.9</td>
+            <th scope="row">{{$loop->iteration}}</th>
+            <td>{{$review->username}}</td>
+            <td>{{$review->wisata->nama}}</td>
+            <td>{{$review->rating}}</td>
             <td>
-              <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-              <a href="#" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+              <a href="{{route('review.edit',$review)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+              <form action="{{route('review.destroy',$review)}}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" onclick="return confirm('yakin mau di hapus ?')"><i class="far fa-trash-alt"></i></button>
+              </form
             </td>
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

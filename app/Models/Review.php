@@ -19,6 +19,6 @@ class Review extends Model
 
     public function wisata()
     {
-        return $this->belongsToMany(Wisata::class);
+        return $this->belongsTo(Wisata::class);
     }
 }
