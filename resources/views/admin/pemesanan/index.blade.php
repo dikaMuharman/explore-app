@@ -32,10 +32,9 @@
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>Ngeteh</td>
-            <td>Teh</td>
-            <td>assalamualaikum</td>
-            <td>Teh</td>
+            <td>Biblio</td>
+            <td>Kolam renang</td>
+            <td>Premium</td>
             <td>1k</td>
             <td>
               <button class="btn btn-primary"><i class="far fa-eye"></i></button>

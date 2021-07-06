@@ -14,8 +14,8 @@
     </div>
     @endif
     <div class="d-flex flex-row justify-content-between align-items-center mb-4">
-      <h2 class="h4"><strong>List atraksi</strong></h2>
-      <a href="{{route('review.create')}}" class="btn btn-primary">Tambah atraksi</a>
+      <h2 class="h4"><strong>List review</strong></h2>
+      <a href="{{route('review.create')}}" class="btn btn-primary">Tambah review</a>
     </div>
     <div class="table-responsive">
       <table class="table table-hover">

@@ -27,11 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="paket">Paket</label>
-                <select class="custom-select @error('role') is-invalid @enderror" name="role">
-                    <option value="" selected>Pilih paket</option>
-                    <option value="user" @if (old('role') == 'user') selected @endif>User</option>
-                    <option value="admin" @if (old('role') == 'admin') selected @endif>Admin</option>
-                </select>
+                <input type="text" name="paket" class="form-control @error('paket') is-invalid @enderror" value="{{old('paket')}}">
                 @error('paket')
                     <span class="invalid-feedback">
                         {{$message}}

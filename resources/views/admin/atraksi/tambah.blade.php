@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
       <div class="card-body">
-          <form action="{{route('atraksi.store')}}" method="POST">
+          <form action="{{route('atraksi.store')}}" endtype method="POST">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama Atraksi</label>
@@ -31,7 +31,8 @@
             </div>
             <div class="form-group">
                 <label for="foto">Foto</label>
-                <input type="text" name="foto" class="form-control @error('foto') is-invalid @enderror" value="{{old('foto')}}">
+                <input type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" placeholder="Input file" value="{{old('foto')}}">
+                <!-- <input type="text" name="foto" class="form-control @error('foto') is-invalid @enderror" value="{{old('foto')}}"> -->
                 @error('foto')
                     <span class="invalid-feedback">
                         {{$message}}

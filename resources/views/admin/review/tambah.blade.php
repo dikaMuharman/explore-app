@@ -7,11 +7,24 @@
       <div class="card-body">
           <form action="{{route('review.store')}}" method="POST">
             @csrf
-            @method('put')
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" value="{{old('username')}}">
                 @error('username')
+                    <span class="invalid-feedback">
+                        {{$message}}
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="wisata">Wisata</label>
+                <select class="custom-select @error('wisata') is-invalid @enderror" name="wisata">
+                    <option value="" selected>Pilih wisata</option>
+                    @foreach ($wisatas as $wisata)
+                    <option value="{{$wisata->id}}" @if (old('wisata') == $wisata->nama) selected @endif>{{$wisata->nama}}</option>
+                    @endforeach
+                </select>
+                @error('paket')
                     <span class="invalid-feedback">
                         {{$message}}
                     </span>
